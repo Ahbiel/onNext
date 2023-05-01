@@ -3,6 +3,10 @@ import Card from "./Card"
 import { Data } from "../Travel"
 import background from './img/fundo.jpg'
 export default function Promotions() {
+  
+  const Promotion = Data.travel.filter((value) => {
+    return value.promotion == true
+  })
   return (
     <PromotionsStyled>
       <div className="containerPromotion">
@@ -12,15 +16,18 @@ export default function Promotions() {
         </div>
         <div className="promotions">
           {
-            Data.card.map((value) => {
+            Promotion.map((value) => {
               console.log(value)
               return (
                 <div key={value.id}>
-                  <Card localy={value.localy} price={value.price} />
+                  {
+                    value.price != undefined &&
+                    <Card localy={value.label} price={value.price}
+                    />}
                 </div>
               )
             })
-          } 
+          }
         </div>
       </div>
     </PromotionsStyled>

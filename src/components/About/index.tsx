@@ -6,8 +6,10 @@ export default function About() {
   return (
     <>
       <AboutStyled>
+        <div className='decoration1'>
+          <img src={Decorations} />
+        </div>
         <main>
-          <img className='decoration1' src={Decorations} />
           <div className='main'>
             <div className='info'>
               <h1>Who we are?</h1>
@@ -28,16 +30,18 @@ export default function About() {
               })}
             </div>
           </div>
-          <img className='decoration2' src={Decorations} />
         </main>
+        <div className='decoration2'>
+          <img src={Decorations} />
+        </div>
       </AboutStyled>
     </>
   )
 }
 
 const AboutStyled = styled.div`
-  height:100vh ;
-  margin-bottom: 20%;
+  margin-bottom: 5%;
+  margin-top: 2rem;
   .main{
     position: relative;
     z-index: 10;
@@ -46,17 +50,28 @@ const AboutStyled = styled.div`
   }
   .decoration1{
     position: relative;
+    margin-bottom: -3rem;
+    z-index: 10;
     left: 0;
-    top:50px;
-    width: 95%;
-    height: 150px;
+    height: 10rem;
+    img{
+      width: 95%;
+      height: 100%;
+    }
   }
   .decoration2{
-    position: absolute;
-    right: 0;
-    width: 95%;
-    height: 150px;
-    transform: rotate(180deg);
+    position: relative;
+    z-index: 10;
+    left: 0;
+    height: 10rem;
+    margin-top: -5rem;
+    img{
+      position: absolute;
+      right: 0;
+      width: 95%;
+      height: 100%;
+      transform: rotate(180deg);
+    }
   }
   .info{
     display: flex;
@@ -102,4 +117,42 @@ const AboutStyled = styled.div`
   .section .card:nth-child(2) { grid-area: 2 / 2 / 3 / 3; }
   .section .card:nth-child(3) { grid-area: 1 / 3 / 2 / 4; }
   .section .card:nth-child(4) { grid-area: 2 / 4 / 3 / 5; }
+  @media(max-width:1150px){
+    .section .card{
+      width: auto;
+    }
+  }
+  @media(max-width:800px){
+    .decoration1{
+      height: 7rem;
+    }
+    .decoration2{
+      height: 7rem;
+    }
+  }
+  @media(max-width:600px){
+    .decoration1{
+      height: 5rem;
+      margin-bottom: 0;
+    }
+    .decoration2{
+      height: 7rem;
+      margin-top: -3rem;
+    }
+    .section{
+      display: grid;
+    }
+    .section .card:nth-child(1) { grid-area: 1 / 2 / 2 / 3; }
+    .section .card:nth-child(2) { grid-area: 2 / 3 / 3 / 4; }
+    .section .card:nth-child(3) { grid-area: 3 / 2 / 4 / 3; }
+    .section .card:nth-child(4) { grid-area: 4 / 3 / 5 / 4; }
+  }
+  @media(max-width:450px){
+    .decoration1{
+      display: none;
+    }
+    .decoration2{
+      display: none;
+    }
+  }
 `

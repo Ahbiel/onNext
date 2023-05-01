@@ -3,32 +3,53 @@ export const Data = {
         {
             id:0,
             label:'Paris',
-            locality:'international'
+            locality:'international',
+            promotion:true,
+            price:{
+                portion:3,
+                dolar:300,
+                cents:99
+            }
         },
         {
             id:1,
             label:'Roma',
-            locality:'international'
+            locality:'international',
+            promotion:false,
         },
         {
             id:2,
             label:'Toronto',
-            locality:'international'
+            locality:'international',
+            promotion:false,
         },
         {
             id:3,
             label:'São paulo',
-            locality:'nacional'
+            locality:'nacional',
+            promotion:true,
+            price:{
+                portion:5,
+                dolar:67,
+                cents:99
+            }
         },
         {
             id:4,
             label:'Manaus',
-            locality:'nacional'
+            locality:'nacional',
+            promotion:true,
+            price:{
+                portion:3,
+                dolar:200,
+                cents:99
+            }
         },
         {
             id:5,
             label:'Gramado',
-            locality:'nacional'
+            locality:'nacional',
+            promotion:false,
         },
     ],
     option:[
@@ -58,33 +79,7 @@ export const Data = {
             subtitle:'Complete services for your trip, with partnerships specialized in hotels and executive transport'
         },
     ],
-    card:[
-        {
-            id:1,
-            localy:'São Paulo',
-            price:{
-                portion:5,
-                dolar:67,
-                cents:99
-            }
-        },
-        {
-            id:2,
-            localy:'Paris',
-            price:{
-                portion:3,
-                dolar:300,
-                cents:99
-            }
-        },
-        {
-            id:3,
-            localy:'Manaus',
-            price:{
-                portion:3,
-                dolar:200,
-                cents:99
-            }
-        }
-    ]
+    promotion:[
+        'São paulo','Paris','Manaus'
+    ],
 }

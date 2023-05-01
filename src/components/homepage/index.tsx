@@ -3,10 +3,11 @@ import * as Ri from 'react-icons/ri'
 import Select from 'react-select'
 import { Data } from "../Travel";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   const [preference, setPreference] = useState<string>('all')
-  
+  const navigate = useNavigate()
   return (
     <HomePageStyled>
       <header>
@@ -28,7 +29,9 @@ export default function HomePage() {
             else {
               return value.locality == preference
             }
-          })} placeholder='See available locations' className="selectLocaly" />
+          })} placeholder='See available locations' onChange={(e)=>{
+            navigate(`/${e?.label}`)
+          }} className="selectLocaly" />
           <Select options={Data.option} onChange={(e) => setPreference(e!.value)} placeholder='Preferences' className="selectPreference" />
         </div>
         <div className="descripiton">
@@ -129,6 +132,29 @@ const HomePageStyled = styled.div`
       p{
         font-size: 1.1em;
       }
+    }
+  }
+  @media(max-width:800px){
+    main{
+      margin-top: 10%;
+      h1{
+        font-size: 4rem;
+      }
+      .input{
+        width: 90%;
+      }
+      .descripiton{
+        color: white;
+        width: 90%;
+        p{
+          font-size: 1.1em;
+        }
+      }  
+    }
+  }
+  @media(max-width:450px){
+    main{
+      margin-top: 30%;
     }
   }
 `
